@@ -1,5 +1,13 @@
 # Simple Setup for Optris Thermal Camera
 
+[home](README.md)
+
+---
+## Introduction
+
+---
+
+## Steps
 ```bash
 cd
 mkdir -p optirs_ws/src

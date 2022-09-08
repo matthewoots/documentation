@@ -1,5 +1,13 @@
 # Simple Setup for DFU-Utils
 
+[home](README.md)
+
+---
+## Introduction
+
+---
+
+## Steps
 Get the release from http://dfu-util.sourceforge.net/releases/ and download `dfu-util-0.11.tar.gz`
 
 ```
