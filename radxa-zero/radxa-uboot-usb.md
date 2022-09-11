@@ -23,4 +23,6 @@ sudo boot-g12.py <path to rz-udisk-loader.bin>
 
 If the board is a new board, you may need to use `radxa-zero-erase-emmc.bin` instead to clear the EMMC then expose it as a device
 
+---
+
 After this you can proceed to [Flashing Radxa with Image](radxa-flash-backup-image.md)

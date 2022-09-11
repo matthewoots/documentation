@@ -10,3 +10,4 @@ Compilation of Setup Guides for various platforms and programmes
 | `radxa-zero` flash and backup | [radxa-flash-backup-image.md](radxa-zero/radxa-flash-backup-image.md) |
 | `radxa-zero` uboot | [radxa-uboot-usb.md](radxa-zero/radxa-uboot-usb.md) |
 | `radxa-zero` access point | [radxa-access-point.md](radxa-zero/radxa-access-point.md) |
+| `radxa-zero` remove autoboot countdown | [radxa-remove-autoboot-countdown.md](radxa-zero/radxa-remove-autoboot-countdown.md) |

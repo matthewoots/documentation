@@ -130,6 +130,8 @@ c link to /run/resolvconf/resolv.conf
 Sep 08 15:53:46 radxa-zero systemd[1]: Started dnsmasq - A lightweight DHCP and caching DNS server.
 ```
 
+---
+
 ## Troubleshooting
 If there is an error of the port being occupied (etc `port 53`), there are 2 ways to solve this, first is to permanently remove `systemd-resolved` as shown [here](https://askubuntu.com/a/1170073) 
 
@@ -149,3 +151,7 @@ sudo kill <PID>
 ```
 
 To restart the network service you can `sudo service network-manager restart`
+
+---
+
+After this you can proceed to [Remove Autoboot Countdown](radxa-remove-autoboot-countdown.md)

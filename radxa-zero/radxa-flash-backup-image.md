@@ -46,4 +46,6 @@ sudo chmod +x balenaEtcher-1.7.9-x64.AppImage
 
 To acquire Radxa images, you will need to go to this site https://github.com/radxa/debos-radxa/releases. You can get the `ubuntu-focal` (ubuntu 20.04) images such as `radxa-zero-ubuntu-focal-server-arm64-2022XXXX-XXXX-mbr.img.xz`
 
+---
+
 After this you can proceed to [Creating Radxa Access Point](radxa-access-point.md)
