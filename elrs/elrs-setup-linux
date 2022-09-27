@@ -1,0 +1,56 @@
+# Setup to start with ELRS on Ubuntu
+
+[home](../README.md)
+
+---
+## Introduction
+How to start using `elrs` on `Ubuntu`, even though it is just using the `elrs configurator`, there are still some settings that can be toggled and also to `de-brick` an `elrs` after a bad flash
+
+---
+
+## Steps
+1. Install the `elrs-configurator`
+```bash
+# Go to https://github.com/ExpressLRS/ExpressLRS-Configurator/releases and choose the relevant version
+# 1.X.X stands for the configuration version etc 1.4.2, 1.5.0
+wget https://github.com/ExpressLRS/ExpressLRS-Configurator/releases/download/v1.X.X/expresslrs-configurator_1.X.X_amd64.deb
+
+sudo dpkg -i <deb file>
+```
+
+2. Inside the `configurator` you will see 5 tabs, mainly we use `official releases` and ignore the rest (Try not to use `3.0.0` yet since it may be still buggy, currently now is sept 2022 and `2.5.0` works like a charm)
+
+Check out https://www.expresslrs.org/2.0/quick-start/receivers for receivers that may be of interest, the table below represents what I have tested
+
+| **type of `elrs` module** | **picture** | **device category** | **device** |
+| -- | -- | -- | -- |
+| Jumper 2.4g elrs RX | [<img src="media/jumper_rx.webp" width="100"/>](media/jumper_rx.webp) | `DIY 2.4 GHz` | `DIY 2400 RX ESP8285 SX1280` |
+| Happymodel 2.4g elrs RX | [<img src="media/happymodel_rx.jpg" width="100"/>](media/happymodel_rx.jpg) | `Happymodel 2.4 GHz` | `HappyModel EP 2400 RX` |
+| Jumper 2.4g elrs TX | [<img src="media/jumper_tx.jpg" width="100"/>](media/jumper_tx.jpg) | `Jumper 2.4 GHz` | `Jumper AION Nano 2400 TX` |
+
+3. `3 types` of flashing the elrs board (**1. UART**, **2. Betaflight passthrough** and **3. Wifi**)
+- For `transmitter (TX)` modules, they may come with a USB-C female port. This provide connection via serial and hence able to flash using `UART` another way is via Wifi
+- For `receivers (RX)` modules, they may only come with `Rx and Tx` soldering pins and hence this is flashing via `UART`, another way is for the `led to flash continuously after around 1min` then there will be a `hotspot` similar to the TX module.
+
+- Receivers requires a `FTDI` to bridge `UART` to serial for the PC to register the module
+
+For `Regulatory Domains` use REGULATORY_DOMAIN_ISM_2400
+For `Binding Phrase` you can add your own
+For `Compatibility Options` use UART_INVERTED
+For `Autowifi Interval` use 60
+
+
+
+---
+
+## Troubleshooting
+
+If your module is bricked and you need to use `esptool` by Expressif to clear the flash before writing the new firmware over it https://github.com/espressif/esptool/issues/19 and https://github.com/ExpressLRS/ExpressLRS/issues/1571
+
+```bash
+git clone git@github.com:espressif/esptool.git --recurse-submodules
+cd esptool
+python3 esptool.py -p /dev/ttyUSB0 erase_flash
+# This following line does not work, use the configurator after erasing the flash
+# python3 esptool.py --baud 115200 --port /dev/ttyUSB0 write_flash 0x000000 ~/Downloads/Jumper_AION_NANO_2400_TX_via_WIFI_HwpgS2/firmware.bin 
+```
